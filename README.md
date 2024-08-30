@@ -19,6 +19,43 @@ Quá trình Compiler có 4 bước :
  + Bước 4: Linking
     + Liên kết tất cả các thư viện và các file được include -> file thực thi
     + `gcc main.o -o main.exe `
-## Macro
-Macro được dùng để định nghĩa những thứ cần định nghĩa trước khi quá trình biên dịch diễn ra
+## CÁC CHỈ THỊ TIỀN XỬ LÝ
+#### Macro
+Macro được dùng để định nghĩa những thứ cần định nghĩa trước khi quá trình biên dịch diễn ra. Nó được xử lý ở quá trình tiền xử lý. Khi trình biên dịch gặp tên macro, nó sẽ thay thế tên đó bằng định nghĩa của macro
 
+Vd : #define SIZE 256
+#### Variadic Macro
+Là loại **macro** có thể nhận tham số không xác định trước.
+
+#define DISPLAY(...)   ____VA_ARGS____
+Trong đó:
++ `...`: Nhận tham số không xác định
++ __VA_ARGS__: tham số biến đổi trong phần thân của macro.
+VD : Tạo mảng
+
+
+       #define ARRAY(...)                  \
+        int array[] = {__VA_ARGS__};        \
+        int i = 0;                          \
+        for ( ; i < sizeof(array)/sizeof(int) ; i++){        \
+        printf ("array[%d] = %d\n", i,array[i]);         \
+        }
+
+#### Chỉ thị tiền xử lý #ifdef, #ifndef
+
+##### - ifdef
+
+        #ifdef
+        
+        #endif
+
+Dùng để kiểm tra một macro đã được khai báo hay chưa. Nếu macro **ĐÃ ĐƯỢC** định nghĩa thì các dòng lệnh sau đó sẽ được biên dịch và thực thi, cho đến khi gặp #endif
+
+##### - ifndef
+
+        #ifndef
+        
+        #endif
+        
+Dùng để kiểm tra một macro đã được khai báo hay chưa. Nếu macro **CHƯA** được định nghĩa thì các dòng lệnh sau đó sẽ được biên dịch và thực thi, cho đến khi gặp #endif
+  
