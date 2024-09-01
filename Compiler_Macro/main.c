@@ -25,6 +25,6 @@ int main( int argc, char const *argv[] ){
 
     ARRAY(1,5,3);
     return 0;
-    printf (" hello");
+    
 }
 
