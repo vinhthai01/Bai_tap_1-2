@@ -20,7 +20,6 @@ for ( ; i < sizeof(array)/sizeof(int) ; i++){        \
 
 
 
-
 int main( int argc, char const *argv[] ){
 
     ARRAY(1,5,3);
